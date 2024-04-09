@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100vw;
+}
+
+.header__ttl-logo {
+    color: #8B7969;
+    font-weight: bold;
+    font-size: 40px;
+}

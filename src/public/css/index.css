@@ -1,0 +1,78 @@
+* {
+    /* box-sizing: border-box;
+    border: salmon solid 0.5px; */
+}
+
+.contact-form__content {
+    margin: 50px auto;
+    justify-content: center;
+    width: 65%;
+}
+
+.contact-form__heading h2 {
+    font-size: 35px;
+    text-align: center;
+    color: #8B7969;
+}
+
+.contact-form__table {
+    width: 100%;
+}
+
+.contact-form__table-row {
+    height: 38px;
+    text-align: left;
+    margin-bottom: 10px;
+
+}
+
+.contact-form__table-label {
+    font-size: 20px;
+    color: #8B7969;
+}
+
+.contact-form__table-label span {
+    color: #FF9494;
+}
+
+.contact-form__table-item {
+    font-size: 18px;
+    display: flex;
+    height: 38px;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #8B7969;
+}
+
+.contact-form__table-item input,
+select,
+textarea {
+    background-color: #F4F4F4;
+    border: none;
+
+}
+
+.contact-form__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact-form__button-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 50px;
+    border: none;
+    background: #8B7969;
+    color: #F4F4F4;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__error {
+    color: #ff0000;
+    text-align: left;
+}
