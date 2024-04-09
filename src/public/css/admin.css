@@ -1,0 +1,197 @@
+/* * {
+     box-sizing: border-box;
+    border: salmon solid 0.5px;
+} */
+
+
+/* ログアウトボタン */
+.logout__button {
+    display: flex;
+    justify-content: right;
+    margin-top: -60px;
+}
+
+.logout__button-submit {
+    margin-right: 30px;
+    height: 34px;
+    width: 100px;
+    border: #D9C6B5 solid 1px;
+    background: #F0F0F0;
+    cursor: pointer;
+    color: #D9C6B5;
+}
+
+
+/* adminページ全体 */
+.admin__content {
+    margin: 50px auto;
+    justify-content: center;
+    width: 80%;
+}
+
+.admin__heading h2 {
+    font-size: 35px;
+    text-align: center;
+    color: #8B7969;
+}
+
+
+/* 検索機能+リセット */
+.admin__search {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.admin__search-form {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+
+}
+
+.admin__search-form input,
+select {
+    padding: 10px;
+    background-color: #FBFBFB;
+    color: #8B7969;
+    border: #E3DED9 solid 1px;
+    margin-right: 3%;
+}
+
+.admin__search-form_name {
+    width: 38%;
+}
+
+.admin__search-form_gender {
+    width: 11%;
+}
+
+.admin__search-form_category {
+    width: 24%;
+}
+
+.admin__search-form_date {
+    width: 15%;
+}
+
+.admin__search-form button {
+    padding: 10px;
+    width: 100px;
+    height: 46px;
+    border: none;
+    background: #8B7969;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.admin__search-reset button {
+    padding: 10px;
+    width: 100px;
+    height: 46px;
+    border: none;
+    background: #D9C6B5;
+    cursor: pointer;
+}
+
+.admin__search-reset a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+/* エクスポート＋ページネーション */
+.admin__function {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.admin__function-export button {
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    background: #E1DBD6;
+    color: #8B7969;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    text-decoration: none;
+    color: #8B7969;
+    background-color: #FFFFFF;
+    border: 1px solid #E0DFDE;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #8B7969;
+    color: #FFFFFF;
+}
+
+/* 問い合わせ一覧 */
+.admin__table {
+    width: 100%;
+}
+
+.admin__table_inner {
+    width: 100%;
+    border: #E0DFDE solid 1px;
+}
+
+.admin__table-header-row {
+    width: 100%;
+    height: 60px;
+    background-color: #8B7969;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: left;
+}
+
+.admin__table-header {
+    padding: 0px 20px;
+}
+
+.admin__table-row {
+    width: 100%;
+    height: 60px;
+    color: #8B7969;
+    border-bottom: #E0DFDE solid 1px;
+}
+
+.admin__table-item {
+    padding: 0px 20px;
+}
+
+.admin__table-detail {
+    margin-right: 10px;
+    height: 40px;
+    width: 80px;
+    border: #D9C6B5 solid 1px;
+    background: #F0F0F0;
+    cursor: pointer;
+    color: #D9C6B5;
+}
+
+/*paginateメソッドの矢印の大きさ調整のために追加*/
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}

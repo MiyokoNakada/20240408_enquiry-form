@@ -1,13 +1,22 @@
+/* *{
+    font-family: "Inika", serif;
+} */
+
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
     width: 100vw;
+    border: #E0DFDE solid 1px;
 }
 
 .header__ttl-logo {
     color: #8B7969;
-    font-weight: bold;
     font-size: 40px;
+    font-family: "Inika", serif;
+}
+
+h2{
+    font-family: "Inika", serif;
 }

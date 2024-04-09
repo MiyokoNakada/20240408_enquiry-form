@@ -19,7 +19,7 @@ class ContactController extends Controller
     //フォーム入力画面で確認画面ボタンをクリック
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell', 'address', 'building', 'category_id','detail']);
+        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell', 'address', 'building', 'category_id', 'detail']);
         // dd($contact);
         return view('confirm', compact('contact'));
     }
@@ -27,9 +27,31 @@ class ContactController extends Controller
     //確認画面で送信ボタンをクリック
     public function store(Request $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'category_id','gender', 'email', 'tell', 'address', 'building', 'detail']);
+        $contact = $request->only(['first_name', 'last_name', 'category_id', 'gender', 'email', 'tell', 'address', 'building', 'detail']);
         // dd($contact);
         Contact::create($contact);
         return view('thanks');
+    }
+
+    //管理者画面の表示
+    public function admin()
+    {
+        $categories = Category::all();
+        $contacts = Contact::Paginate(7);
+        return view('admin', compact('categories', 'contacts'));
+    }
+
+    //検索機能
+    public function search(Request $request)
+    {
+        $contacts = Contact::query()
+            ->KeywordSearch($request->keyword)
+            ->GenderSearch($request->gender)
+            ->CategorySearch($request->category_id)
+            ->DateSearch($request->date)
+            ->Paginate(7);
+        $categories = Category::all();
+
+        return view('admin', compact('categories', 'contacts'));
     }
 }
