@@ -2,10 +2,12 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 @endsection
 
 
 @section('content')
+
 <div class="logout">
     @if (Auth::check())
     <div class="logout__button">
@@ -81,7 +83,9 @@
                     </td>
                     <td class="admin__table-item">{{ $contact['email'] }}</td>
                     <td class="admin__table-item">{{ $contact->category->content }}</td>
-                    <td><button class="admin__table-detail">詳細</button></td>
+                    <td>
+                        @livewire('modal-livewire')
+                    </td>
                 </tr>
                 @endforeach
             </table>
