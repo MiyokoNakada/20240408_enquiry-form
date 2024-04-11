@@ -19,9 +19,12 @@ class ContactController extends Controller
     //フォーム入力画面で確認画面ボタンをクリック
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell', 'address', 'building', 'category_id', 'detail']);
-        // dd($contact);
-        return view('confirm', compact('contact'));
+        $phoneNumber = $request->input('tell1').$request->input('tell2').$request->input('tell3');
+        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']);
+        $contact['tell'] = $phoneNumber;
+        $category = Category::find($request->input('category_id'))->content;
+        // dd($category);
+        return view('confirm', compact('category','contact'));
     }
 
     //確認画面で送信ボタンをクリック
@@ -44,16 +47,18 @@ class ContactController extends Controller
     //検索機能
     public function search(Request $request)
     {
-        $contacts = Contact::query()
+        $query = Contact::query()
             ->KeywordSearch($request->keyword)
-            ->GenderSearch($request->gender)
             ->CategorySearch($request->category_id)
-            ->DateSearch($request->date)
-            ->Paginate(7);
+            ->DateSearch($request->date);
+
+        if ($request->gender != 4) {
+            $query->GenderSearch($request->gender);
+        }
+
+        $contacts = $query->Paginate(7);
         $categories = Category::all();
 
         return view('admin', compact('categories', 'contacts'));
     }
-
-
 }

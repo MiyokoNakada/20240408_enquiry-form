@@ -56,7 +56,7 @@
                     <div class="register-form__group-content">
                         <div class="register-form__input--text">
                             <input type="password" placeholder="例: coachtech1106" name="password" />
-                            <input type="password" placeholder="例: coachtech1106" name="password_confirmation" />
+                            <input type="password" placeholder="例: coachtech1106" name="password_confirmation" /> 
                         </div>
                         <div class="form__error">
                             @error('password')

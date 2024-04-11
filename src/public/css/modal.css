@@ -1,3 +1,4 @@
+/* モダール全体の表示 */
 .modal-overlay {
     z-index: 1000;
 }
@@ -12,10 +13,60 @@
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 4px 4px #8B7969;
-    z-index: 1001;  /* オーバーレイよりも上に表示 */
+    z-index: 1001;
+    /* オーバーレイよりも上に表示 */
 }
 
-.modal-table__table{
+/* 閉じるボタン */
+.modal-close{
+    display: flex;
+    justify-content: right;
+}
+.modal-close__button {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    background-color: #ffffff;
+    color: #8B7969;
+    border: #8B7969 solid 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* 詳細表示の表 */
+.modal-table__table {
+    width: 80%;
+    height: 60%;
     margin: 0 auto;
     text-align: left;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+
+.modal-table__table-label {
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+.modal-table__table-item {
+    padding-bottom: 20px;
+}
+
+
+/* 削除ボタン */
+.modal-delete{
+    display: flex;
+    justify-content: center;
+}
+.modal-delete__button {
+    padding: 10px;
+    width: 80px;
+    height: 40px;
+    border: none;
+    background: #BA370D;
+    color: #FFFFFF;
+    cursor: pointer;
 }

@@ -12,20 +12,27 @@
     </div>
     <form class="form" action="/thanks" method="post">
         @csrf
-        <div class="confirm-table">
-            <table class="confirm-table__inner">
+        <div class="confirm-table__inner">
+            <table class="confirm-table">
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly />
-                        <input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly />
+                        <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}" readonly />
+                        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}" readonly />
+                        {{ $contact['last_name'] ."　". $contact['first_name'] }}
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="gender" value="{{ 
-                            $contact['gender'] }}" readonly />
+                        <input type="hidden" name="gender" value="{{ $contact['gender'] }}" readonly />
+                        @if ($contact['gender'] === "1")
+                        男性
+                        @elseif ($contact['gender'] === "2")
+                        女性
+                        @else
+                        その他
+                        @endif
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -55,7 +62,8 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header"></th>
                     <td class="confirm-table__text">
-                        <input type="text" name="category_id" value="{{ $contact['category_id'] }}" readonly />
+                        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly />
+                        {{ $category }}
                     </td>
                 </tr>
                 <tr class="confirm-table__row">

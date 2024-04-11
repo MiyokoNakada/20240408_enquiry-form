@@ -145,16 +145,23 @@ return [
     */
 
     'features' => [
-        Features::registration(),
+        Features::registration([
+            'password_confirmation' => false,
+        ]),
         Features::resetPasswords(),
         // Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-        Features::twoFactorAuthentication([
+        /*Features::twoFactorAuthentication([
             'confirm' => true,
-            'confirmPassword' => false,
+            'confirmPassword' => true,
             // 'window' => 0,
-        ]),
+        ]),*/
+    ],
+
+    'requests' => [
+        'login' => App\Http\Requests\LoginRequest::class,
+        'register' => App\Http\Requests\RegisterRequest::class,
     ],
 
     'redirects' => [

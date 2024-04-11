@@ -21,11 +21,11 @@
     width: 70%;
 }
 
-.confirm-table {
+.confirm-table__inner {
     border: 1px solid #E0DFDE;
 }
 
-.confirm-table__inner {
+.confirm-table {
     width: 100%;
 }
 
@@ -34,18 +34,19 @@
     width: 20%;
     border-bottom: 1px solid #E0DFDE;
     background-color: #BAA899;
-    color: #FFFFFF;;
+    color: #FFFFFF;
+    ;
     font-weight: bold;
 }
 
 .confirm-table__text {
     padding: 15px;
     border-bottom: 1px solid #E0DFDE;
+    display: flex;
+    width: auto;
 }
 
 .confirm-table__text input {
-    width: 100%;
-    outline: none;
     border: none;
     color: #8B7969;
     font-size: 18px;
@@ -62,7 +63,8 @@
     height: 50px;
     border: none;
     background: #8B7969;
-        color: #F4F4F4;
+    color: #F4F4F4;
     cursor: pointer;
     margin-right: 30px;
+    margin-bottom: 30px;
 }

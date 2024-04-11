@@ -1,6 +1,6 @@
-/* *{
-    font-family: "Inika", serif;
-} */
+*{
+    font-family: "Inika", "游ゴシック", serif;
+}
 
 .header {
     display: flex;
@@ -14,9 +14,5 @@
 .header__ttl-logo {
     color: #8B7969;
     font-size: 40px;
-    font-family: "Inika", serif;
 }
 
-h2{
-    font-family: "Inika", serif;
-}

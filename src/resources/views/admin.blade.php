@@ -84,7 +84,7 @@
                     <td class="admin__table-item">{{ $contact['email'] }}</td>
                     <td class="admin__table-item">{{ $contact->category->content }}</td>
                     <td>
-                        @livewire('modal-livewire')
+                        @livewire('modal-livewire', ['contactId' => $contact['id']])
                     </td>
                 </tr>
                 @endforeach

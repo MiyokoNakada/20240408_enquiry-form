@@ -1,12 +1,11 @@
 /* * {
     box-sizing: border-box;
-    border: salmon solid 0.5px; 
+    border: salmon solid 0.5px;
 } */
 
 .contact-form__content {
     margin: 50px auto;
-    justify-content: center;
-    width: 65%;
+    width: 60vw;
 }
 
 .contact-form__heading h2 {
@@ -15,20 +14,24 @@
     color: #8B7969;
 }
 
+/* フォーム表 */
 .contact-form__table {
     width: 100%;
 }
 
-.contact-form__table-row {
-    height: 38px;
-    text-align: left;
-    margin-bottom: 10px;
+.contact-form__table-inner {
+    width: 100%;
+}
 
+.contact-form__table-row {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .contact-form__table-label {
-    font-size: 20px;
     color: #8B7969;
+    width: 30%;
 }
 
 .contact-form__table-label span {
@@ -36,21 +39,79 @@
 }
 
 .contact-form__table-item {
-    font-size: 18px;
     display: flex;
-    height: 38px;
+    align-items: center;
     width: 100%;
-    margin-bottom: 10px;
     color: #8B7969;
+    padding: 5px;
 }
 
 .contact-form__table-item input,
-select,
 textarea {
     background-color: #F4F4F4;
     border: none;
-
+    color: #8B7969;
+    margin-right: 20px;
+    width: 100%;
+    padding-left: 10px;
+    align-items: center;
 }
+
+.contact-form__table-item input {
+    height:40px;
+}
+.contact-form__table-item span {
+    margin-right: 20px;
+}
+.contact-form__table-item textarea {
+    padding-top: 10px;
+}
+
+.contact-form__table-item-select {
+    width: 100%;
+    color: #8B7969;
+    padding: 5px;
+}
+
+.contact-form__table-item-select select {
+    height: 40px;
+    width: 50%;
+    background-color: #F4F4F4;
+    border: none;
+    color: #8B7969;
+    padding-left: 10px;
+}
+
+.contact-form__table-item_gender {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.contact-form__table-item_gender input {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: #8B7969 solid 0.5px;
+}
+
+.contact-form__table-item_gender input:checked {
+    background-color: #8B7969;
+}
+
+.contact-form__table-item_gender label {
+    height: 40px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    color: #8B7969;
+}
+
+
+
 
 .contact-form__button {
     display: flex;
