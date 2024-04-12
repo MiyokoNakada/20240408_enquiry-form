@@ -20,6 +20,10 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
 
+//登録、ログイン用ページ
+Route::post('/register', [AuthController::class, 'registerStore']);
+Route::post('/login', [AuthController::class, 'loginStore']);
+
 //管理用ページの表示、認証ミドルウェア
 Route::middleware('auth')->group(
     function () {
