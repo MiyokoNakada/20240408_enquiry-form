@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
 class ContactController extends Controller
@@ -54,12 +55,42 @@ class ContactController extends Controller
             ->DateSearch($request->date);
 
         if ($request->gender != 4) {
-            $query->GenderSearch($request->gender);
+            $query = $query->GenderSearch($request->gender);
         }
 
         $contacts = $query->paginate(7)->withQueryString();
         $categories = Category::all();
 
         return view('admin', compact('categories', 'contacts'));
+    }
+
+    // エクスポート機能
+    public function export()
+    {
+        $contacts = Contact::all();
+        $csvHeader = ['id', 'category_id', 'first_name', 'last_name',  'gender', 'email', 'tell', 'address', 'building', 'detail', 'created_at', 'updated_at'];
+        $csvData = $contacts->toArray();
+        // dd($csvHeader);
+
+        $response = new StreamedResponse(function () use ($csvHeader, $csvData) {
+            $handle = fopen('php://output', 'w');
+
+            if ($handle !== false) { // UTF-8 エンコーディングで書き込み可能なモードで開く
+                fwrite($handle, "\xEF\xBB\xBF"); // BOM（Byte Order Mark）を書き込み
+                fputcsv($handle, $csvHeader); // ヘッダーを書き込み
+                foreach ($csvData as $row) { // データを書き込み
+                    $encodedRow = array_map(function ($item) {  // データの各要素をUTF-8に変換する
+                        return mb_convert_encoding($item, 'UTF-8', 'auto');
+                    }, $row);
+                    fputcsv($handle, $encodedRow);
+                }
+                fclose($handle);
+            }
+        }, 200, [
+            'Content-Type' => 'text/csv; charset=utf-8',
+            'Content-Disposition' => 'attachment; filename="contacts.csv"',
+        ]);
+
+        return $response;
     }
 }

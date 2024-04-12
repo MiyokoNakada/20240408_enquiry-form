@@ -30,3 +30,6 @@ Route::middleware('auth')->group(
 //検索機能
 Route::get('/admin/search', [ContactController::class, 'search']);
 
+//エクスポート機能
+Route::get('/admin/export', [ContactController::class, 'export']);
+
