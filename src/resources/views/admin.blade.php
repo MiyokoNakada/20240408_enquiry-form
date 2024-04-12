@@ -62,38 +62,34 @@
     </div>
 
     <div class="admin__table">
-        <form class="admin__form" action="/confirm" method="post">
-            @csrf
-            <table class="admin__table_inner">
-                <tr class="admin__table-header-row">
-                    <th class="admin__table-header">お名前</th>
-                    <th class="admin__table-header">性別</th>
-                    <th class="admin__table-header">メールアドレス</th>
-                    <th class="admin__table-header">お問い合わせの種類</th>
-                    <th></th>
-                </tr>
-                @foreach ($contacts as $contact)
-                <tr class="admin__table-row">
-                    <td class="admin__table-item">{{ $contact['last_name']."　".$contact['first_name'] }}</td>
-                    <td class="admin__table-item">
-                        @if ($contact['gender'] === 1)
-                        男性
-                        @elseif ($contact['gender'] === 2)
-                        女性
-                        @else
-                        その他
-                        @endif
-                    </td>
-                    <td class="admin__table-item">{{ $contact['email'] }}</td>
-                    <td class="admin__table-item">{{ $contact->category->content }}</td>
-                    <td>
-                        @livewire('modal-livewire', ['contactId' => $contact['id']])
-                    </td>
-                </tr>
-                @endforeach
-            </table>
-        </form>
-
+        <table class="admin__table_inner">
+            <tr class="admin__table-header-row">
+                <th class="admin__table-header">お名前</th>
+                <th class="admin__table-header">性別</th>
+                <th class="admin__table-header">メールアドレス</th>
+                <th class="admin__table-header">お問い合わせの種類</th>
+                <th></th>
+            </tr>
+            @foreach ($contacts as $contact)
+            <tr class="admin__table-row">
+                <td class="admin__table-item">{{ $contact['last_name']."　".$contact['first_name'] }}</td>
+                <td class="admin__table-item">
+                    @if ($contact['gender'] === 1)
+                    男性
+                    @elseif ($contact['gender'] === 2)
+                    女性
+                    @else
+                    その他
+                    @endif
+                </td>
+                <td class="admin__table-item">{{ $contact['email'] }}</td>
+                <td class="admin__table-item">{{ $contact->category->content }}</td>
+                <td>
+                    @livewire('modal-livewire', ['contactId' => $contact['id']])
+                </td>
+            </tr>
+            @endforeach
+        </table>
     </div>
 </div>
 @endsection

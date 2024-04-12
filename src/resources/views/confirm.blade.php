@@ -44,7 +44,10 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header"></th>
                     <td class="confirm-table__text">
-                        <input type="tel" name="tell" value="{{ $contact['tell'] }}" readonly />
+                        <input type="hidden" name="tell1" value="{{ $contact['tell1'] }}" readonly />
+                        <input type="hidden" name="tell2" value="{{ $contact['tell2'] }}" readonly />
+                        <input type="hidden" name="tell3" value="{{ $contact['tell3'] }}" readonly />
+                        {{ $contact['tell1'] .$contact['tell2']. $contact['tell3'] }}
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -76,7 +79,7 @@
         </div>
         <div class="form__button">
             <button class="form__submit-button" type="submit">送信</button>
-            <a class="form__correct-button" href="/">修正</a>
+            <button class="form__back-button type=" submit" name='back' value="back">修正</button>
         </div>
 
     </form>

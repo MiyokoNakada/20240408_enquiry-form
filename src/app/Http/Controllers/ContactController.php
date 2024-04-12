@@ -21,19 +21,23 @@ class ContactController extends Controller
     //フォーム入力画面で確認画面ボタンをクリック
     public function confirm(ContactRequest $request)
     {
-        $phoneNumber = $request->input('tell1') . $request->input('tell2') . $request->input('tell3');
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']);
-        $contact['tell'] = $phoneNumber;
+        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell1', 'tell2', 'tell3', 'address', 'building', 'category_id', 'detail']);
         $category = Category::find($request->input('category_id'))->content;
-        // dd($category);
+        
         return view('confirm', compact('category', 'contact'));
     }
 
     //確認画面で送信ボタンをクリック
     public function store(Request $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'category_id', 'gender', 'email', 'tell', 'address', 'building', 'detail']);
-        // dd($contact);
+        //修正ボタンをクリックしたとき
+        if ($request->input('back') == 'back') {
+            return redirect('/')->withInput();
+        }
+        $phoneNumber = $request->input('tell1') . $request->input('tell2') . $request->input('tell3');
+        $contact = $request->only(['first_name', 'last_name', 'category_id', 'gender', 'email', 'address', 'building', 'detail']);
+        $contact['tell'] = $phoneNumber;
+
         Contact::create($contact);
         return view('thanks');
     }

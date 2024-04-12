@@ -131,7 +131,7 @@
                         <select name="category_id">
                             <option value="">選択してください</option>
                             @foreach ($categories as $category)
-                            <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                            <option value="{{ $category['id'] }}" @if(old('category_id')==$category->id) selected @endif>{{ $category['content'] }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -148,7 +148,7 @@
                         お問い合わせの内容<span>※</span>
                     </th>
                     <td class="contact-form__table-item">
-                        <textarea name="detail" cols="50" rows="5" placeholder="お問い合わせ内容をご記載ください"></textarea>
+                        <textarea name="detail" cols="50" rows="5" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                     </td>
                 </tr>
             </table>

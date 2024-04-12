@@ -12,7 +12,8 @@
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     padding: 20px;
-    box-shadow: 0 4px 4px #8B7969;
+    border: #8B7969 solid 1px;
+    box-shadow: 4px 4px 2px #8B7969;
     z-index: 1001;
     /* オーバーレイよりも上に表示 */
 }
@@ -23,9 +24,10 @@
     justify-content: right;
 }
 .modal-close__button {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     font-size: 24px;
+    text-align: center;
     background-color: #ffffff;
     color: #8B7969;
     border: #8B7969 solid 1px;
