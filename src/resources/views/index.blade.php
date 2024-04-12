@@ -72,7 +72,13 @@
                 <tr class="form__error">
                     <th></th>
                     <td>
+                        @if ($errors->has('tell1'))
                         @error('tell1'){{ $message }}@enderror
+                        @elseif ($errors->has('tell2'))
+                        @error('tell2'){{ $message }}@enderror
+                        @elseif ($errors->has('tell3'))
+                        @error('tell3'){{ $message }}@enderror
+                        @endif
                     </td>
                 </tr>
                 <tr class="contact-form__table-row">
@@ -80,11 +86,11 @@
                         電話番号 <span>※</span>
                     </th>
                     <td class="contact-form__table-item">
-                        <input type="tel" name="tell1" placeholder="例：080" value="{{ old('tell') }}">
+                        <input type="tel" name="tell1" placeholder="例：080" value="{{ old('tell1') }}">
                         <span>-</span>
-                        <input type="tel" name="tell2" placeholder="1234" value="{{ old('tell') }}">
+                        <input type="tel" name="tell2" placeholder="1234" value="{{ old('tell2') }}">
                         <span>-</span>
-                        <input type="tel" name="tell3" placeholder="5678" value="{{ old('tell') }}">
+                        <input type="tel" name="tell3" placeholder="5678" value="{{ old('tell3') }}">
                     </td>
                 </tr>
                 <tr class="form__error">
