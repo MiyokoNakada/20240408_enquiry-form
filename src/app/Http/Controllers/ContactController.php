@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
 
+
 class ContactController extends Controller
 {
     //お問い合わせフォームの入力画面を表示
@@ -19,12 +20,12 @@ class ContactController extends Controller
     //フォーム入力画面で確認画面ボタンをクリック
     public function confirm(ContactRequest $request)
     {
-        $phoneNumber = $request->input('tell1').$request->input('tell2').$request->input('tell3');
+        $phoneNumber = $request->input('tell1') . $request->input('tell2') . $request->input('tell3');
         $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']);
         $contact['tell'] = $phoneNumber;
         $category = Category::find($request->input('category_id'))->content;
         // dd($category);
-        return view('confirm', compact('category','contact'));
+        return view('confirm', compact('category', 'contact'));
     }
 
     //確認画面で送信ボタンをクリック
@@ -56,7 +57,7 @@ class ContactController extends Controller
             $query->GenderSearch($request->gender);
         }
 
-        $contacts = $query->Paginate(7);
+        $contacts = $query->paginate(7)->withQueryString();
         $categories = Category::all();
 
         return view('admin', compact('categories', 'contacts'));

@@ -44,10 +44,10 @@
 .login-form {
     margin: 0 auto;
     width: 50%;
-    height: 60%;
     background-color: #FFFFFF;
     border-radius: 10px;
     border: #C5B9B0 solid 1px;
+    margin-bottom: 30px;
 }
 
 .login-form_form {

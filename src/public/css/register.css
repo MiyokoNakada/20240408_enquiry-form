@@ -29,7 +29,6 @@
 .register__content {
     padding: 10px;
     width: 100vw;
-    height: 100vh;
     background-color: #F1ECE7;
 }
 
@@ -42,10 +41,10 @@
 .register-form {
     margin: 0 auto;
     width: 50%;
-    height:80%;
     background-color: #FFFFFF;
     border-radius: 10px;
     border: #C5B9B0 solid 1px;
+    margin-bottom: 30px;
 }
 
 .register-form_form {

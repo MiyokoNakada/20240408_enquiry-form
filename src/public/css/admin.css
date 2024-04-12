@@ -8,7 +8,7 @@
 .logout__button {
     display: flex;
     justify-content: right;
-    margin-top: -60px;
+    margin-top: -70px;
 }
 
 .logout__button-submit {
