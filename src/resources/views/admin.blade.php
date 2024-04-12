@@ -51,7 +51,10 @@
 
     <div class="admin__function">
         <div class="admin__function-export">
-            <button class="admin__function-export_button">エクスポート</button>
+            <form class="dmin__function-export_-form" action="/admin/export" method="get">
+                @csrf
+                <button class="admin__function-export_button">エクスポート</button>
+            </form>
         </div>
         <div class="admin__function-pagenation">
             {{ $contacts->links() }}
