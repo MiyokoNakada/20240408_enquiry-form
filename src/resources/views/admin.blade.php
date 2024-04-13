@@ -45,7 +45,10 @@
             <button>検索</button>
         </form>
         <div class="admin__search-reset">
-            <button><a href="/admin">リセット</a></button>
+            <form action="/admin/reset" method="POST">
+                @csrf
+                <button type="submit">リセット</button>
+            </form>
         </div>
     </div>
 

@@ -31,8 +31,9 @@ Route::middleware('auth')->group(
     }
 );
 
-//検索機能
+//検索機能、リセット機能
 Route::get('/admin/search', [ContactController::class, 'search']);
+Route::post('/admin/reset', [ContactController::class, 'reset']);
 
 //エクスポート機能
 Route::get('/admin/export', [ContactController::class, 'export']);

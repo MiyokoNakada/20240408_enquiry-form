@@ -1,7 +1,7 @@
-/* * {
+* {
     box-sizing: border-box;
     border: salmon solid 0.5px;
-} */
+}
 
 
 .confirm__content {
@@ -35,7 +35,6 @@
     border-bottom: 1px solid #E0DFDE;
     background-color: #BAA899;
     color: #FFFFFF;
-    ;
     font-weight: bold;
 }
 
@@ -44,9 +43,11 @@
     border-bottom: 1px solid #E0DFDE;
     display: flex;
     width: auto;
+    color: #8B7969;
 }
 
 .confirm-table__text input {
+    width: 100%;
     border: none;
     color: #8B7969;
     font-size: 18px;
@@ -61,10 +62,22 @@
     padding: 10px;
     width: 15%;
     height: 50px;
+    font-size: larger;
     border: none;
     background: #8B7969;
     color: #F4F4F4;
     cursor: pointer;
-    margin-right: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.form__back-button {
+    padding: 10px;
+    width: 15%;
+    height: 50px;
+    font-size: larger;
+    text-decoration-line: underline;
+    border: none;
+    background: none;
+    color:#8B7969;
+    cursor: pointer;
 }

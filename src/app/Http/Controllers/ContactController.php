@@ -23,7 +23,7 @@ class ContactController extends Controller
     {
         $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell1', 'tell2', 'tell3', 'address', 'building', 'category_id', 'detail']);
         $category = Category::find($request->input('category_id'))->content;
-        
+
         return view('confirm', compact('category', 'contact'));
     }
 
@@ -65,16 +65,48 @@ class ContactController extends Controller
         $contacts = $query->paginate(7)->withQueryString();
         $categories = Category::all();
 
+        // 検索条件をセッションに保存(for export function)
+        session()->put('export_keyword', $request->input('keyword'));
+        session()->put('export_gender', $request->input('gender'));
+        session()->put('export_category_id', $request->input('category_id'));
+        session()->put('export_date', $request->input('date'));
+
         return view('admin', compact('categories', 'contacts'));
+    }
+
+    //検索リセット
+    public function reset(Request $request)
+    {
+        // セッションから検索条件をクリアする
+        $request->session()->forget('export_keyword');
+        $request->session()->forget('export_gender');
+        $request->session()->forget('export_category_id');
+        $request->session()->forget('export_date');
+
+        return redirect('/admin');
     }
 
     // エクスポート機能
     public function export()
     {
-        $contacts = Contact::all();
+        // セッションから検索条件を取得する
+        $keyword = session()->get('export_keyword');
+        $gender = session()->get('export_gender');
+        $category_id = session()->get('export_category_id');
+        $date = session()->get('export_date');
+
+        $query = Contact::query()
+            ->KeywordSearch($keyword)
+            ->CategorySearch($category_id)
+            ->DateSearch($date);
+        if ($gender != 4) {
+            $query = $query->GenderSearch($gender);
+        }
+
+        $contacts = $query->get();
+
         $csvHeader = ['id', 'category_id', 'first_name', 'last_name',  'gender', 'email', 'tell', 'address', 'building', 'detail', 'created_at', 'updated_at'];
         $csvData = $contacts->toArray();
-        // dd($csvHeader);
 
         $response = new StreamedResponse(function () use ($csvHeader, $csvData) {
             $handle = fopen('php://output', 'w');
