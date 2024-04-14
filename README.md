@@ -21,7 +21,7 @@
 - MySQL 8.0.26
 
 ## ER図
-![ER_tables](https://github.com/MiyokoNakada/20240408_enquiry-form/assets/159742835/691d9c56-1eaf-4195-9725-897d85316dcd)
+![ER_tables](https://github.com/MiyokoNakada/20240408_enquiry-form/assets/159742835/da75b2e2-0814-43d2-950e-ba84a6c4f334)
 
 ## URL
 - お問い合わせフォーム：http://localhost/
