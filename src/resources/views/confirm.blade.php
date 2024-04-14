@@ -8,7 +8,7 @@
 
 <div class="confirm__content">
     <div class="confirm__heading">
-        <h2>confirm</h2>
+        <h2>Confirm</h2>
     </div>
     <form class="form" action="/thanks" method="post">
         @csrf
@@ -71,8 +71,8 @@
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header"></th>
-                    <td class="confirm-table__text">
-                        <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly />
+                    <td class="confirm-table__text_detail">
+                        <textarea type="text" name="detail" readonly>{{ $contact['detail'] }}</textarea>
                     </td>
                 </tr>
             </table>
